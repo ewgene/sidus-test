@@ -1,4 +1,4 @@
-# тз
+# ТЗ
 
 Реализовать экран по [макету в figma](https://www.figma.com/file/E4DfGaxlPOYWmzmtGY09DN/Untitled?node-id=0%3A1)
 
