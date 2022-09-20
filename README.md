@@ -4,7 +4,7 @@
 
 Механики и ожидаемый результат можно посмотреть [на скрин-видео](https://disk.yandex.ru/i/p91yZjSrhq6elA)
 
-# условие
+# Условие
 
 Vue 3 + TS + script setup + SCSS
 
