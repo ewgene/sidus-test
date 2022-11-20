@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "nodemon": "^2.0.20",
+    "save": "^2.9.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {
