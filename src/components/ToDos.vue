@@ -20,8 +20,6 @@
 import { defineComponent, PropType, ref } from "vue"
 import { ToDo } from "../types/todo"
 
-//const completed = Object as PropType<ToDo>
-
 export default defineComponent ({
     name: 'ToDos',
     props: {
@@ -32,8 +30,6 @@ export default defineComponent ({
     setup(props) {
         const count = ref(0)
         const total = ref(props.list.length)
-
-        console.log()
 
         return {
             count,

@@ -68,6 +68,7 @@ export default defineComponent({
             elem = event.target.parentNode.parentNode.parentNode
             console.log(elem)
             elem.classList.toggle('closed')
+            this.show = !this.show
             elem = null
         }
     }  
