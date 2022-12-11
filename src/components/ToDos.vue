@@ -31,10 +31,13 @@ export default defineComponent ({
         const count = ref(0)
         const total = ref(props.list.length)
 
+<<<<<<< HEAD
         watch(count, () => {
             context.emit('count', count.value)
         })
 
+=======
+>>>>>>> de09f2f5f5fdbead1b218d63cdd11bc638735b06
         return {
             count,
             total
