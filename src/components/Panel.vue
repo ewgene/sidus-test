@@ -46,37 +46,44 @@
 <script lang="ts">
 
 import { defineComponent, type PropType, ref } from 'vue'
+/* Загружаем модули трёх типов: 
+    list -- список с возможностью отметки пунктов
+    game -- фото с динмически появляющимися анимированными объектами
+    text -- простой текстовый блок */
 import Kitty from './Kitty.vue'
 import Text from './Text.vue'
 import ToDos from './ToDos.vue'
+// Загружаем интерфейс для списочного объекта
 import { ToDo } from '../types/todo'
 
 export default defineComponent({
     name: "Panel",
     components: {
-        ToDos,
-        Kitty,
-        Text
+        ToDos, // list
+        Kitty, // game
+        Text // text
     },
     props: {
-        name: String,
-        type: String,
-        title: String,
-        content: Object as PropType<ToDo>,
-        heart: String
+        name: String, // имя компонента для внутреннего пользования
+        type: String, // тип
+        title: String, // заголовок для панели
+        content: Object as PropType<ToDo>, // типизированное содержание
+        heart: String // адрес картинки для анимированного элемента в типе game
     },
     setup(props) {
         const show = ref(true)
-        let panelName
-        let panelSource
-        let panelContent
-        let panelHeart
-        let isList = false
+        let panelName // универсальное имя для панели любого типа. служит для id корневого эемента dom
+        let panelSource // имя компонента панели
+        let panelContent // содержание панели
+        let panelHeart // url анимированного элемент для панели типа 'game'
+        let isList = false 
         let isGame = false
         let isText = false
-        let count = 0
+        // счётчики для панелей типа 'todo'
+        let count = 0 
         let total
 
+        // выбор наполнение панелей в зависимости от типа
        if(props.type === 'list') {
             panelSource = 'ToDos'
             panelName = props.name
@@ -112,6 +119,7 @@ export default defineComponent({
         }
     },
     methods: {
+        // механизм показа/скрытия панелей
         swapPanel() {
             let elem = null
             elem = event.currentTarget.parentNode.parentNode

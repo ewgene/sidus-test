@@ -31,6 +31,7 @@
             let count = 0
             let heartIMG:any = null
 
+            // генерация случайной позиции элемента и вертикального смещения в анимации
             function calcPosition() {
                 let randomPositionX = Math.floor(Math.random()*15)
                 let randomPositionY = Math.floor(Math.random()*200)
@@ -40,6 +41,7 @@
                 }
             }
 
+            // анимация вертикального смещения элемета
             function fireHeart(spot:any, offset:number) {
                 let move = null
                 let fizpos = spot.getBoundingClientRect().top
@@ -52,6 +54,7 @@
                 return spot
             }
 
+            // генерация нового анимарованного элмента по клику
             function pushHeart() {
                 let gameBox = document.getElementById('hearts')
                 let heartPos = gameBox?.getBoundingClientRect().top

@@ -20,7 +20,7 @@ export default defineComponent({
         content: String
     },
     setup(props) {
-
+        // здесь писать нечего
         }
     })
 
