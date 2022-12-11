@@ -1,6 +1,6 @@
 <template>
     <div :id="`${name}`">
-        <div class="title">
+        <div class="panel_title">
             <p>{{ title }}[{{ count }}/{{ total }}]</p>
         </div>
         <ul class="listing"
@@ -17,7 +17,7 @@
 
 <script lang="ts">
 
-import { defineComponent, PropType, ref } from "vue"
+import { defineComponent, PropType, ref, watch } from "vue"
 import { ToDo } from "../types/todo"
 
 export default defineComponent ({
@@ -27,9 +27,13 @@ export default defineComponent ({
         title: String,
         list: Object as PropType<ToDo>
     },
-    setup(props) {
+    setup(props, context) {
         const count = ref(0)
         const total = ref(props.list.length)
+
+        watch(count, () => {
+            context.emit('count', count.value)
+        })
 
         return {
             count,
@@ -51,18 +55,10 @@ export default defineComponent ({
 
 <style lang="scss">
 .listing {
-    margin: 4.7vh 0;
     width: max-content;
 
     .done {
         text-decoration: line-through;
     }
-}
-.title {         
-    width: max-content;   
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 39px;
-    margin: 0;
 }
 </style>

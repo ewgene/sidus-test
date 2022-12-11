@@ -7,6 +7,11 @@ declare module '*.vue' {
 }
 
 declare module '*.json' {
-  const data: any;
-  export default data;
+  const data: Array;
+  export = data;
+}
+
+declare module "*.png" {
+  const value: any;
+  export = value;
 }
