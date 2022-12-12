@@ -18,21 +18,23 @@
 <script lang="ts">
 
 import { defineComponent, PropType, ref, watch } from "vue"
+// импортирум интерфейс списочного элемента
 import { ToDo } from "../types/todo"
 
 export default defineComponent ({
     name: 'ToDos',
     props: {
-        name: String,
-        title: String,
-        list: Object as PropType<ToDo>
+        name: String, // используется как id для dom списка
+        title: String, // заголовок панели
+        list: Object as PropType<ToDo> //список элементов
     },
     setup(props, context) {
-        const count = ref(0)
-        const total = ref(props.list.length)
+        const count = ref(0) // колчество отмеченных
+        const total = ref(props.list.length) // общее количество
 
+        // отправляем колиество отмеченных родителю для заголовка в свёрнутом состоянии
         watch(count, () => {
-            context.emit('count', count.value)
+            context.emit('count', count.value) 
         })
 
         return {
